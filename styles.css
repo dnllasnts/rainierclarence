@@ -1,0 +1,56 @@
+body {
+  font-family: 'Garamond', serif;
+  background-color: #add8e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.book {
+  background-color: #fff;
+  width: 320px;
+  height: 450px;
+  perspective: 1000px;
+  position: relative;
+  transition: transform 1s ease;
+  transform-style: preserve-3d; /* Ensures children move in 3D space */
+}
+.book-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #6495ed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FFF;
+  font-size: 24px;
+  padding: 20px;
+  z-index: 2;
+  transform-origin: left;
+  transition: transform 1s ease;
+}
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  padding: 20px;
+  transform-origin: left;
+  transform: rotateY(-180deg); /* Initially hidden behind the cover */
+  transition: transform 1s ease;
+}
+.page-content {
+  font-size: 18px;
+  text-align: left;
+}
+
+/* Hover effect */
+.book:hover .book-cover {
+  transform: rotateY(-180deg); /* Rotate cover to reveal the page */
+}
+.book:hover .page {
+  transform: rotateY(0deg); /* Show the page */
+}
